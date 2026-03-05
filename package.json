@@ -1,5 +1,5 @@
 {
-  "name": "2-nodejs",
+  "name": "4-nodejs",
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
@@ -20,6 +20,7 @@
     "typescript-eslint": "^8.46.4"
   },
   "dependencies": {
+    "bcrypt": "^6.0.0",
     "celebrate": "^15.0.3",
     "cors": "^2.8.6",
     "dotenv": "^17.3.1",

@@ -11,6 +11,7 @@ import { notFoundHandler } from './middleware/notFoundHandler.js';
 import { logger } from './middleware/logger.js';
 // / Routes
 import studentsRoutes from './routes/studentsRoutes.js';
+import authRoutes from './routes/authRoutes.js';
 
 const app = express();
 const PORT = process.env.PORT ?? 3000;
@@ -26,6 +27,7 @@ app.use(cors());
 
 // ! Routes
 
+app.use(authRoutes);
 app.use(studentsRoutes);
 
 // ! Middlewares
