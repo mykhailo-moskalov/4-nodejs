@@ -3,6 +3,7 @@ import express from 'express';
 import cors from 'cors';
 import 'dotenv/config';
 import { errors } from 'celebrate';
+import cookieParser from 'cookie-parser';
 // / Database
 import { connectMongoDB } from './db/connectMongoDB.js';
 // / Middlewares
@@ -24,6 +25,7 @@ app.use(
   }),
 );
 app.use(cors());
+app.use(cookieParser());
 
 // ! Routes
 
