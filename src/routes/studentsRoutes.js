@@ -17,10 +17,15 @@ import {
   deleteStudent,
   updateStudent,
 } from '../controllers/studentsController.js';
+// / Middleware
+import { authenticate } from '../middleware/authenticate.js';
 
 const router = Router();
 
-// / GET
+// ! Midlleware
+router.use('/students', authenticate);
+
+// ! GET
 router.get('/students', celebrate(getStudentsSchema), getStudents);
 router.get(
   '/students/:studentId',
@@ -31,17 +36,17 @@ router.get('/test-error', (req, res) => {
   throw createHttpError('Something went wrong');
 });
 
-// / POST
+// ! POST
 router.post('/students', celebrate(createStudentSchema), createStudent);
 
-// / DELETE
+// ! DELETE
 router.delete(
   '/students/:studentId',
   celebrate(studentIdParamSchema),
   deleteStudent,
 );
 
-// / PATCH
+// ! PATCH
 router.patch(
   '/students/:studentId',
   celebrate(updateStudentSchema),
